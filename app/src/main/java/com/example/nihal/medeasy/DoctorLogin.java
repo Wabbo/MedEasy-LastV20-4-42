@@ -46,7 +46,7 @@ public class DoctorLogin extends AppCompatActivity {
         loginPhone = findViewById(R.id.loginPhone);
         login = findViewById(R.id.login);
         database = FirebaseDatabase.getInstance();
-         myRef = database.getReference("Users");
+        myRef = database.getReference("Users");
 
         mCvCountdownView = (CountdownView) findViewById(R.id.cv_countdownViewTest1);
         //mCvCountdownView.start(1800000); // Millisecond
@@ -54,9 +54,9 @@ public class DoctorLogin extends AppCompatActivity {
             @Override
             public void onEnd(CountdownView cv) {
                 //Toast.makeText(DoctorLogin.this, "teeeeeesssssssttttt", Toast.LENGTH_SHORT).show();
-                generateRandomNum(mobile, password);
             }
         });
+        mCvCountdownView.setVisibility(View.GONE);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,7 +88,7 @@ public class DoctorLogin extends AppCompatActivity {
                             Log.d("ttt", "onDataChange: " + dataSnapshot.getValue());
                             if ((number + "@gmail.com").equals(dataSnapshot.getValue())) {
                                 myRef.child("" + dataSnap.getKey()).child("Info").child("Pass").setValue("" + random);
-
+                                finish();
                             }
                         }
 
@@ -137,14 +137,19 @@ public class DoctorLogin extends AppCompatActivity {
                         for (final DataSnapshot data : dataSnap.getChildren()) {
                             //UserModel userModel = data.getValue(UserModel.class);
                             //    Log.d("TTTTTT->", "onDataChange: " + data.getKey());
-                            Hawk.put(Constants.patientID,data.getKey());
-                            Log.d("TTTTTTT", "onDataChange: " + data.getValue(UserModel.class).getPassword());
-                            if (password.equals(data.getValue(UserModel.class).getPassword())) {
-                                mCvCountdownView.start(50000); // Millisecond
-                                startActivity(new Intent(DoctorLogin.this, DoctorHome.class));
-//
-                            } else {
-                                Toast.makeText(DoctorLogin.this, "wrong Data", Toast.LENGTH_SHORT).show();
+                            Hawk.put(Constants.patientID, data.getKey());
+//                            Log.d("TTTTTTT", "onDataChange: " + data.getValue(UserModel.class).getPassword());
+                            Log.d("TTTT", "onDataChange: "+data.toString());
+                            if (data.getValue(UserModel.class).getPassword() != null) {
+                                if (password.equals(data.getValue(UserModel.class).getPassword())) {
+                                    mCvCountdownView.start(50000); // Millisecond
+                                    startActivity(new Intent(DoctorLogin.this, DoctorHome.class));
+                                    generateRandomNum(mobile, password);
+                                    break;
+
+                                } else {
+                                    Toast.makeText(DoctorLogin.this, "wrong Data", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         }
                         break;
@@ -214,7 +219,6 @@ public class DoctorLogin extends AppCompatActivity {
 //                                }
 //                            });
 //                }
-
 
 
 //
