@@ -134,10 +134,11 @@ public class DoctorLogin extends AppCompatActivity {
                     for (final DataSnapshot dataSnap : dataSnapshot.getChildren()) {
                         Log.d("TTTTTT", "onDataChange: ------");
                         Log.d("TTTTTT->", "onDataChange: " + dataSnap.getKey());
+                        Hawk.put(Constants.patientID, dataSnapshot.getKey());
+
                         for (final DataSnapshot data : dataSnap.getChildren()) {
                             //UserModel userModel = data.getValue(UserModel.class);
                             //    Log.d("TTTTTT->", "onDataChange: " + data.getKey());
-                            Hawk.put(Constants.patientID, data.getKey());
 //                            Log.d("TTTTTTT", "onDataChange: " + data.getValue(UserModel.class).getPassword());
                             Log.d("TTTT", "onDataChange: "+data.toString());
                             if (data.getValue(UserModel.class).getPassword() != null) {
