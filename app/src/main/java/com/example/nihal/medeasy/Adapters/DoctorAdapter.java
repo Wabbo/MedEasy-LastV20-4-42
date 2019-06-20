@@ -45,24 +45,23 @@ public class DoctorAdapter extends RecyclerView.Adapter<DoctorAdapter.DoctorHold
         final DoctorHomeModel doctorHomeModel = doctorModelArrayList.get(position);
         holder.click_text.setText(doctorHomeModel.getText());
         if (doctorHomeModel.getImage() == 0) {
-           holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.doctor_medical_history)) ; //Url of the image to load.
+            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.file)) ; //Url of the image to load.
         } else if (doctorHomeModel.getImage() == 1) {
-            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.doctor_medical_history)) ; //Url of the image to load.
+            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.injection)) ; //Url of the image to load.
 
         } else if (doctorHomeModel.getImage() == 2) {
-            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.doctor_medical_history))  ;//Url of the image to load.
+            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.analysis))  ;//Url of the image to load.
 
         } else if (doctorHomeModel.getImage() == 3) {
-            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.doctor_medical_history)) ; //Url of the image to load.
+            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.patient)) ; //Url of the image to load.
 
-        } else if (doctorHomeModel.getImage() == 4) {
-            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.doctor_medical_history))  ;//Url of the image to load.
+        }
+        else if (doctorHomeModel.getImage() == 4) {
+            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.blood_bag)) ; //Url of the image to load.
 
-        } else if (doctorHomeModel.getImage() == 5) {
-            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.doctor_medical_history))  ;//Url of the image to load.
-
-        }else {
-            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.doctor_medical_history))  ;//Url of the image to load.
+        }
+        else {
+            holder.click_image.setImageDrawable(context.getResources().getDrawable(R.drawable.file))  ;//Url of the image to load.
 
         }
 
