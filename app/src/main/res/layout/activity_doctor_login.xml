@@ -61,7 +61,7 @@
                     android:inputType="number"
                     android:backgroundTint="@color/colorAccent"
                     android:gravity="center"
-                    android:hint="Your number" />
+                    android:hint="Patient number" />
 
 
             </LinearLayout>
@@ -90,7 +90,7 @@
                     android:inputType="textPassword"
                     android:backgroundTint="@color/colorAccent"
                     android:gravity="center"
-                    android:hint="Your password" />
+                    android:hint="Patient password" />
 
 
             </LinearLayout>
