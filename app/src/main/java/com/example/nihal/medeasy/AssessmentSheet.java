@@ -1,11 +1,9 @@
 package com.example.nihal.medeasy;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -13,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.nihal.medeasy.Models.AssessmentSheetModel;
+import com.example.nihal.medeasy.Models.Drugs;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.hawk.Hawk;
@@ -40,11 +39,36 @@ public class AssessmentSheet extends AppCompatActivity {
         yourComplaint = findViewById(R.id.yourComplaint);
         DM_yes = findViewById(R.id.DM_yes);
         DM_no = findViewById(R.id.DM_no);
+
         if (DM_yes.isChecked()) {
             DM = "1";
         } else {
             DM = "0";
         }
+
+        DM_yes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    DM_no.setChecked(false);
+                }else{
+                    DM_no.setChecked(true);
+                }
+            }
+        });
+
+        DM_no.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    DM_yes.setChecked(false);
+                }else{
+                    DM_yes.setChecked(true);
+                }
+            }
+        });
+
+
 
         Smoking_yes = findViewById(R.id.Smoking_yes);
         Smoking_no = findViewById(R.id.Smoking_no);
@@ -53,6 +77,29 @@ public class AssessmentSheet extends AppCompatActivity {
         } else {
             Smoking = "0";
         }
+
+        Smoking_no.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    Smoking_yes.setChecked(false);
+                }else{
+                    Smoking_yes.setChecked(true);
+                }
+            }
+        });
+
+        Smoking_yes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    Smoking_no.setChecked(false);
+                }else{
+                    Smoking_no.setChecked(true);
+                }
+            }
+        });
+
         hypertension_yes = findViewById(R.id.hypertension_yes);
         hypertension_no = findViewById(R.id.hypertension_no);
         if (hypertension_yes.isChecked()) {
@@ -61,6 +108,29 @@ public class AssessmentSheet extends AppCompatActivity {
             hypertension = "0";
         }
 
+        hypertension_yes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    hypertension_no.setChecked(false);
+                }else{
+                    hypertension_no.setChecked(true);
+                }
+            }
+        });
+
+        hypertension_no.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    hypertension_yes.setChecked(false);
+                }else{
+                    hypertension_yes.setChecked(true);
+                }
+            }
+        });
+
+
         dyslipidemia_yes = findViewById(R.id.dyslipidemia_yes);
         dyslipidemia_no = findViewById(R.id.dyslipidemia_no);
         if (dyslipidemia_yes.isChecked()) {
@@ -68,6 +138,30 @@ public class AssessmentSheet extends AppCompatActivity {
         } else {
             dyslipidemia = "0";
         }
+
+        dyslipidemia_yes.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    dyslipidemia_no.setChecked(false);
+                }else{
+                    dyslipidemia_no.setChecked(true);
+                }
+            }
+        });
+
+        dyslipidemia_no.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    dyslipidemia_yes.setChecked(false);
+                }else{
+                    dyslipidemia_yes.setChecked(true);
+                }
+            }
+        });
+
+
         generalLook_normal = findViewById(R.id.generalLook_normal);
         generalLook_pale = findViewById(R.id.generalLook_pale);
         generalLook_cyanosed = findViewById(R.id.generalLook_cyanosed);
@@ -81,31 +175,76 @@ public class AssessmentSheet extends AppCompatActivity {
         } else {
             generalLook="4";
         }
+
+
+        generalLook_normal.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    generalLook_pale.setChecked(false) ;
+                    generalLook_cyanosed.setChecked(false) ;
+                    generalLook_sweaty.setChecked(false) ;
+                }
+            }
+        });
+
+        generalLook_pale.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    generalLook_normal.setChecked(false);
+                    generalLook_cyanosed.setChecked(false) ;
+                    generalLook_sweaty.setChecked(false) ;
+                }
+            }
+        });
+
+        generalLook_cyanosed.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    generalLook_normal.setChecked(false);
+                    generalLook_pale.setChecked(false) ;
+                    generalLook_sweaty.setChecked(false) ;
+                }
+            }
+        });
+
+        generalLook_sweaty.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if(b == true){
+                    generalLook_normal.setChecked(false);
+                    generalLook_pale.setChecked(false) ;
+                    generalLook_cyanosed.setChecked(false) ;
+                }
+            }
+        });
+
         go_profile = findViewById(R.id.go_profile);
         next=findViewById(R.id.next);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Hawk.init(AssessmentSheet.this).build();
-                AssessmentSheetModel model = new AssessmentSheetModel("" + yourComplaint.getText().toString()
-                        , ""+pasthistory_editText.getText().toString()
-                        , "", ""+DM, ""+Smoking
-                        , ""+hypertension, ""+dyslipidemia, ""+generalLook,
+
+                final String YourComplaint = yourComplaint.getText().toString();
+
+                if (YourComplaint.isEmpty()) {
+                    yourComplaint.setError(" Enter Complaint ");
+                } else {
+                    Hawk.init(AssessmentSheet.this).build();
+                    AssessmentSheetModel model = new AssessmentSheetModel("" + yourComplaint.getText().toString()
+                            , "" + pasthistory_editText.getText().toString()
+                            , "", "" + DM, "" + Smoking
+                            , "" + hypertension, "" + dyslipidemia, "" + generalLook,
 
 
-
-                        "", "", "", "", ""
-                        , "", "", "", "", "", ""
-                        , "", "", "", "", "");
-                Hawk.put("model",model);
-                startActivity(new Intent(AssessmentSheet.this,AssessmentSheet2.class));
-            }
-        });
-
-        yourComplaint = findViewById(R.id.yourComplaint);
-        yourComplaint.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                            "", "", "", "", ""
+                            , "", "", "", "", "", ""
+                            , "", "", "", "", "");
+                    Hawk.put("model", model);
+                    startActivity(new Intent(AssessmentSheet.this, AssessmentSheet2.class));
+                }
             }
         });
 
