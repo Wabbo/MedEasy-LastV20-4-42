@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.nihal.medeasy.Models.AssessmentSheetModel;
 import com.example.nihal.medeasy.Models.AssessmentSheetsModle;
 import com.example.nihal.medeasy.R;
 
@@ -14,12 +15,17 @@ import java.util.List;
 
 public class AssessmentSheetsModleAdapter extends RecyclerView.Adapter < AssessmentSheetsModleAdapter.AssessmentSheetsModleAdapterHolder > {
 
-    List<AssessmentSheetsModle> assessmentSheetsModleList;
+//      List<AssessmentSheetsModle> assessmentSheetsModleList;
+      List<AssessmentSheetModel> modelList;
 
-    AssessmentSheetsModleAdapter(List<AssessmentSheetsModle> modles){
+
+   /* public AssessmentSheetsModleAdapter(List<AssessmentSheetsModle> modles){
         this.assessmentSheetsModleList = modles ;
-    }
+    }*/
 
+    public AssessmentSheetsModleAdapter(List<AssessmentSheetModel> modles){
+        this.modelList = modles ;
+    }
     @NonNull
     @Override
     public AssessmentSheetsModleAdapterHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -31,28 +37,29 @@ public class AssessmentSheetsModleAdapter extends RecyclerView.Adapter < Assessm
     @Override
     public void onBindViewHolder(@NonNull AssessmentSheetsModleAdapterHolder assessmentSheetsModleAdapterHolder, int i) {
 
-        AssessmentSheetsModle modle = assessmentSheetsModleList.get(i)  ;
-        assessmentSheetsModleAdapterHolder.elt5ssos.setText(modle.getElt5ssos());
-        assessmentSheetsModleAdapterHolder.description.setText(modle.getDescription());
-        assessmentSheetsModleAdapterHolder.drug.setText(modle.getDrug());
-        assessmentSheetsModleAdapterHolder.date.setText(modle.getDate());
+      //  AssessmentSheetsModle modle = assessmentSheetsModleList.get(i)  ;
+        AssessmentSheetModel modle = modelList.get(i)  ;
+        assessmentSheetsModleAdapterHolder.elt5ssos.setText(modle.getYourComplaint());
+       // assessmentSheetsModleAdapterHolder.description.setText(modle.getDescription());
+       // assessmentSheetsModleAdapterHolder.drug.setText(modle.getDrug());
+        assessmentSheetsModleAdapterHolder.date.setText(modle.getDM());
     }
 
     @Override
     public int getItemCount() {
-        return assessmentSheetsModleList.size();
+        return modelList.size() ;
     }
 
                         /*** class el Holder ***/
 
     public  class AssessmentSheetsModleAdapterHolder extends RecyclerView.ViewHolder {
-        TextView elt5ssos, description, drug, date;
+        TextView elt5ssos, /*description, drug,*/ date;
 
         public AssessmentSheetsModleAdapterHolder(@NonNull View itemView) {
             super(itemView);
             elt5ssos = itemView.findViewById(R.id.elt5ssos);
-            description = itemView.findViewById(R.id.description);
-            drug = itemView.findViewById(R.id.drug);
+          //  description = itemView.findViewById(R.id.description);
+          //  drug = itemView.findViewById(R.id.drug);
             date = itemView.findViewById(R.id.date);
         }
     }

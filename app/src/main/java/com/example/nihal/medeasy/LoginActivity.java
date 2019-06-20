@@ -67,12 +67,13 @@ public class LoginActivity extends AppCompatActivity {
 
                             if (task.isSuccessful()) {
                                 FirebaseUser user = task.getResult().getUser();
-                                loding.dismiss();
                                 Hawk.put(Constants.userID,user.getUid());
                                 databaseReference=FirebaseDatabase.getInstance().getReference();
                                 databaseReference.child("Users").child(user.getUid()).child("Info").child("type").addValueEventListener(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        loding.dismiss();
+
                                         String type = (String) dataSnapshot.getValue();
                                         Log.d("TTT", "onDataChange: "+type);
                                         if(type.equals("1")){

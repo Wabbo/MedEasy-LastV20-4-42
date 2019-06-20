@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.nihal.medeasy.Models.AssessmentSheetModel;
+import com.example.nihal.medeasy.Utils.Constants;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.orhanobut.hawk.Hawk;
@@ -163,7 +164,7 @@ public class AssessmentSheet2 extends AppCompatActivity {
     public void writeOnDataBase(AssessmentSheetModel model) {
         database1 = FirebaseDatabase.getInstance();
         String key;
-        myRef1 = database1.getReference("Users").child("1UbTozyso3SR8ZY7y0O6mZxTVqd2").child("Roshetat");
+        myRef1 = database1.getReference("Users").child(Hawk.get(Constants.patientID)+"").child("Roshetat");
         if(Hawk.contains("Key")){
 
 

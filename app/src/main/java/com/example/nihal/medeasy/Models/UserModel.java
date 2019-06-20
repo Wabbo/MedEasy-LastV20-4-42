@@ -2,7 +2,29 @@ package com.example.nihal.medeasy.Models;
 
 public class UserModel {
 
-    private String UserName, YearOfBirth, Address, Occupation, FamilyHistoryLink, Weight, Height, Password, PhoneNumber,type,gender,userID;
+    private String UserName, YearOfBirth, Address, Occupation, FamilyHistoryLink,
+            Weight, Height, Password, PhoneNumber, type, gender, userID,
+            autoPassword, bloodType, status;
+
+    public UserModel(String userName, String yearOfBirth, String address, String occupation, String familyHistoryLink, String weight, String height, String password, String phoneNumber, String type, String gender, String userID, String autoPassword, String bloodType, String status) {
+        UserName = userName;
+        YearOfBirth = yearOfBirth;
+        Address = address;
+        Occupation = occupation;
+        FamilyHistoryLink = familyHistoryLink;
+        Weight = weight;
+        Height = height;
+        Password = password;
+        PhoneNumber = phoneNumber;
+        this.type = type;
+        this.gender = gender;
+        this.userID = userID;
+        this.autoPassword = autoPassword;
+        this.bloodType = bloodType;
+        this.status = status;
+    }
+    public UserModel() {
+    }
 
     public String getUserName() {
         return UserName;
@@ -12,20 +34,20 @@ public class UserModel {
         UserName = userName;
     }
 
+    public String getYearOfBirth() {
+        return YearOfBirth;
+    }
+
+    public void setYearOfBirth(String yearOfBirth) {
+        YearOfBirth = yearOfBirth;
+    }
+
     public String getAddress() {
         return Address;
     }
 
     public void setAddress(String address) {
         Address = address;
-    }
-
-    public String getPassword() {
-        return Password;
-    }
-
-    public void setPassword(String password) {
-        Password = password;
     }
 
     public String getOccupation() {
@@ -44,14 +66,6 @@ public class UserModel {
         FamilyHistoryLink = familyHistoryLink;
     }
 
-    public String getPhoneNumber() {
-        return PhoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        PhoneNumber = phoneNumber;
-    }
-
     public String getWeight() {
         return Weight;
     }
@@ -68,35 +82,20 @@ public class UserModel {
         Height = height;
     }
 
-    public String getYearOfBirth() {
-        return YearOfBirth;
+    public String getPassword() {
+        return Password;
     }
 
-    public void setYearOfBirth(String yearOfBirth) {
-        YearOfBirth = yearOfBirth;
-    }
-
-    public UserModel(String userName, String yearOfBirth, String address, String occupation, String familyHistoryLink, String weight, String height, String password, String phoneNumber, String type, String gender, String userID) {
-        UserName = userName;
-        YearOfBirth = yearOfBirth;
-        Address = address;
-        Occupation = occupation;
-        FamilyHistoryLink = familyHistoryLink;
-        Weight = weight;
-        Height = height;
+    public void setPassword(String password) {
         Password = password;
+    }
+
+    public String getPhoneNumber() {
+        return PhoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
         PhoneNumber = phoneNumber;
-        this.type = type;
-        this.gender = gender;
-        this.userID = userID;
-    }
-
-    public String getUserID() {
-        return userID;
-    }
-
-    public void setUserID(String userID) {
-        this.userID = userID;
     }
 
     public String getType() {
@@ -115,8 +114,38 @@ public class UserModel {
         this.gender = gender;
     }
 
-    public UserModel() {
-
+    public String getUserID() {
+        return userID;
     }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getAutoPassword() {
+        return autoPassword;
+    }
+
+    public void setAutoPassword(String autoPassword) {
+        this.autoPassword = autoPassword;
+    }
+
+    public String getBloodType() {
+        return bloodType;
+    }
+
+    public void setBloodType(String bloodType) {
+        this.bloodType = bloodType;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+
 }
 

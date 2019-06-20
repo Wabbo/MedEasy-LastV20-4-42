@@ -244,6 +244,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/user" />
+
+                <EditText
+                    android:id="@+id/Status"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.1"
+                    android:backgroundTint="@color/colorAccent"
+                    android:gravity="center"
+                    android:hint="Status"
+                    android:inputType="text" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="20dp"
                 android:orientation="horizontal"
@@ -325,6 +353,69 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="20dp"
                 android:orientation="horizontal"
+                android:padding="3dp"
+                android:id="@+id/Doctor_id_section">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/password" />
+
+                <EditText
+                    android:id="@+id/doc_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.1"
+                    android:backgroundTint="@color/colorAccent"
+                    android:gravity="center"
+                    android:hint="Your Doctor ID"
+                    android:inputType="number" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
+                android:padding="3dp"
+                android:id="@+id/specialization_section"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:padding="5dp"
+                    android:src="@drawable/password" />
+
+                <EditText
+                    android:id="@+id/specialization"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_weight="0.1"
+                    android:backgroundTint="@color/colorAccent"
+                    android:gravity="center"
+                    android:hint="Your Specialization"
+                    android:inputType="text" />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal"
                 android:padding="3dp">
 
                 <ImageView
@@ -346,6 +437,7 @@
 
 
             </LinearLayout>
+
 
             <Button
                 android:id="@+id/SignUp"

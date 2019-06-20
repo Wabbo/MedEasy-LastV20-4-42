@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
+import com.example.nihal.medeasy.Fragment.AssessmentSheetsFragment;
 import com.example.nihal.medeasy.Fragment.ProfileFragment;
 import com.example.nihal.medeasy.widget.CanaroTextView;
 import com.yalantis.guillotine.animation.GuillotineAnimation;
@@ -38,6 +39,8 @@ public class HomeActivity extends AppCompatActivity {
         contentHamburger = findViewById(R.id.guillotine_icon_nav);
         bottom_navigation = findViewById(R.id.bottom_navigation);
         final ProfileFragment profileFragment=new ProfileFragment();
+        final AssessmentSheetsFragment assessmentSheetsFragment =new AssessmentSheetsFragment();
+
 
         //NavigationDrawer
 
@@ -108,7 +111,7 @@ public class HomeActivity extends AppCompatActivity {
                 // Do something cool here...
                 if(position==0){
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.container, profileFragment);
+                    fragmentTransaction.replace(R.id.container, assessmentSheetsFragment);
                     fragmentTransaction.commit();
                 }else if(position==1){
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();

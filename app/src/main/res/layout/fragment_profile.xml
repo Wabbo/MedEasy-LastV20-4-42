@@ -17,24 +17,17 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:gravity="center"
                 android:orientation="vertical">
 
-                <!--<ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="-40dp"
 
-                    android:src="@drawable/user"
-                    android:layout_marginRight="-40dp"
-                    android:layout_marginTop="-30dp" />
--->
                 <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/profile_image"
                     android:layout_width="96dp"
                     android:layout_height="96dp"
-                    android:src="@drawable/user"
+                    android:src="@drawable/user_profile"
+                    app:civ_border_color="@color/colorAccent"
                     app:civ_border_width="1dp" />
 
                 <TextView
@@ -44,10 +37,11 @@
                     android:layout_marginTop="10dp"
                     android:text="Nihal"
                     android:textColor="@color/colorButton"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
-            </LinearLayout>
 
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -103,13 +97,15 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="60"
-                            android:textColor="@color/colorButton" />
+                            android:textColor="@color/colorButton"
+                            android:textSize="15dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="kg"
                             android:textColor="@color/colorButton"
+                            android:textSize="12dp"
 
                             />
 
@@ -134,6 +130,7 @@
                             android:layout_height="wrap_content"
                             android:text="165"
                             android:textColor="@color/colorButton"
+                            android:textSize="15dp"
 
 
                             />
@@ -143,6 +140,7 @@
                             android:layout_height="wrap_content"
                             android:text="cm"
                             android:textColor="@color/colorButton"
+                            android:textSize="12dp"
 
                             />
                     </LinearLayout>
@@ -163,6 +161,7 @@
                             android:layout_height="wrap_content"
                             android:text="25"
                             android:textColor="@color/colorButton"
+                            android:textSize="15dp"
 
                             />
 
@@ -171,6 +170,7 @@
                             android:layout_height="wrap_content"
                             android:text="year"
                             android:textColor="@color/colorButton"
+                            android:textSize="12dp"
 
                             />
                     </LinearLayout>
@@ -191,6 +191,7 @@
                             android:layout_height="wrap_content"
                             android:text="A-"
                             android:textColor="@color/colorButton"
+                            android:textSize="15dp"
 
                             />
 
@@ -225,9 +226,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
                 android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="password"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/autoPassword"
+                    android:layout_width="wrap_content"
+                    android:textSize="20sp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="4655"/>
+
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -244,9 +259,9 @@
                     android:padding="10dp">
 
                     <android.support.v7.widget.RecyclerView
+                        android:id="@+id/RV"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/RV">
+                        android:layout_height="wrap_content">
 
                     </android.support.v7.widget.RecyclerView>
 
@@ -260,8 +275,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -283,8 +298,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginRight="20dp"
                 android:orientation="vertical">
 
                 <TextView
