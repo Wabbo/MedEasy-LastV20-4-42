@@ -18,6 +18,7 @@ import android.widget.LinearLayout;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.example.nihal.medeasy.Fragment.AssessmentSheetsFragment;
+import com.example.nihal.medeasy.Fragment.PostFragment;
 import com.example.nihal.medeasy.Fragment.ProfileFragment;
 import com.example.nihal.medeasy.widget.CanaroTextView;
 import com.yalantis.guillotine.animation.GuillotineAnimation;
@@ -40,6 +41,7 @@ public class HomeActivity extends AppCompatActivity {
         bottom_navigation = findViewById(R.id.bottom_navigation);
         final ProfileFragment profileFragment=new ProfileFragment();
         final AssessmentSheetsFragment assessmentSheetsFragment =new AssessmentSheetsFragment();
+        final PostFragment postFragment=new PostFragment();
 
 
         //NavigationDrawer
@@ -115,7 +117,7 @@ public class HomeActivity extends AppCompatActivity {
                     fragmentTransaction.commit();
                 }else if(position==1){
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                    fragmentTransaction.replace(R.id.container, profileFragment);
+                    fragmentTransaction.replace(R.id.container, postFragment);
                     fragmentTransaction.commit();
                 }else {
                     FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
